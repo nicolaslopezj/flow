@@ -1,0 +1,30 @@
+<template name='home'>
+  <div class="container">
+    <h1 class="text-center">
+      Flow Tests
+    </h1>
+    <br>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        {{# if getPack }}
+          {{# if isTests }}
+            <form method="post" action="http://flow.tuxpan.com/app/kpf/pago.php">
+              <input type="hidden" name="parameters" value="{{ getPack }}" />
+              <button class="btn btn-primary" type="submit">Pagar en Flow</button>
+            </form>
+          {{ else }}
+            <form method="post" action="https://www.flow.cl/app/kpf/pago.php">
+              <input type="hidden" name="parameters" value="{{ getPack }}" />
+              <button class="btn btn-primary" type="submit">Pagar en Flow</button>
+            </form>
+          {{/ if }}
+          <code>
+            {{ getPack }}
+          </code>
+        {{ else }}
+          {{> quickForm schema=getSchema doc=getDefault id="newPaymentForm" }}
+        {{/ if }}
+      </div>
+    </div>
+  </div>
+</template>
