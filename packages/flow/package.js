@@ -11,7 +11,7 @@ Npm.depends({
   multiparty: '4.1.2',
 });
 
-Package.onUse(function(api) {
+Package.onUse(function (api) {
   api.versionsFrom('1.3.1');
 
   api.use('ecmascript');
@@ -26,9 +26,10 @@ Package.onUse(function(api) {
   api.mainModule('main_server.js', 'server');
 });
 
-Package.onTest(function(api) {
+Package.onTest(function (api) {
   api.use('ecmascript');
   api.use('tinytest');
   api.use('nicolaslopezj:flow');
-  api.mainModule('flow-tests.js');
+
+  //api.mainModule('flow-tests.js');
 });
