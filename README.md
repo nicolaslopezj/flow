@@ -70,6 +70,8 @@ Servipag = 2, Todos los medios de pago = 9;
 
 ### Crear nuevos pagos
 
+https://github.com/nicolaslopezj/flow/tree/master/client/home
+
 ```js
 import {newOrder} from 'meteor/nicolaslopezj:flow';
 
