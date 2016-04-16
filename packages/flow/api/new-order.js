@@ -27,7 +27,7 @@ export default newOrder = function (order) {
     ti: 'd',
     e: order.buyerEmail,
     v: 'kit_1_2',
-  });
+  }, order.key);
 
   return { paymentId, pack: packed };
 };

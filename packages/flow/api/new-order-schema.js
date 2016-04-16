@@ -26,4 +26,8 @@ export default newOrderSchema = new SimpleSchema({
     blackbox: true,
     optional: true,
   },
+  key: {
+    type: String,
+    optional: true,
+  },
 });

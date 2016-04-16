@@ -1,6 +1,12 @@
 # Flow Meteor
 
+Flow es una plataforma de pagos que te permite realizar pagos vía webpay.
+
 ## Instrucciones
+
+```sh
+meteor add nicolaslopezj:flow
+```
 
 ### Obtener key
 
