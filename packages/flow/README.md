@@ -86,8 +86,8 @@ Meteor.methods({
       description,
       buyerEmail,
       paymentType: 1,
-      successUrl: 'http://localhost:3000/success',
-      failureUrl: 'http://localhost:3000/failure',
+      successUrl: 'success',
+      failureUrl: 'failure',
       meta: {
         productId: 'myProductId',
       },
