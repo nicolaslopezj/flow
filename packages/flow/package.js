@@ -1,6 +1,6 @@
 Package.describe({
   name: 'nicolaslopezj:flow',
-  version: '0.1.0',
+  version: '0.1.3',
   summary: 'Flow payments for Meteor',
   git: '',
   documentation: 'README.md',

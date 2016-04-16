@@ -30,4 +30,9 @@ export default newOrderSchema = new SimpleSchema({
     type: String,
     optional: true,
   },
+  storeEmail: {
+    type: String,
+    optional: true,
+    regEx: SimpleSchema.RegEx.Email,
+  }
 });
