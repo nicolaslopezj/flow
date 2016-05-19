@@ -28,14 +28,15 @@ export default newOrder = function (order) {
     status: 'pending',
   });
 
-  if (order.key) {
+  if (order.key || order.storeEmail) {
     PaymentKeys.insert({
       paymentId,
       keyUsed: order.key,
+      storeEmail: order.storeEmail,
     });
   }
 
-  const packed = pack({
+  const data = {
     c: order.storeEmail || config.email,
     oc: paymentId,
     mp: order.paymentType,
@@ -47,7 +48,8 @@ export default newOrder = function (order) {
     ti: 'd',
     e: order.buyerEmail,
     v: 'kit_1_2',
-  }, order.key);
+  };
+  const packed = pack(data, order.key);
 
   return { paymentId, pack: packed };
 };

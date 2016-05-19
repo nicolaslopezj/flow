@@ -7,4 +7,7 @@ PaymentKeys.attachSchema({
   keyUsed: {
     type: String,
   },
+  storeEmail: {
+    type: String,
+  },
 });

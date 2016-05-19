@@ -18,14 +18,16 @@ post.route('/flow-confirm-payment', function (params, request, response, next) {
     Fiber(function () {
       const query = qs.parse(body.split('\n')[3]);
       const payment = Payments.findOne(query.kpf_orden);
+      if (!payment) {
+        console.log('payment not found');
+        return response.end('payment not found');
+      }
       const error = getError(body.split('\n')[3], query, payment);
-      const data = {
-        status: error ? 'RECHAZADO' : 'ACEPTADO',
-        c: payment.storeEmail || config.email,
-      };
+      const data = { status: error ? 'RECHAZADO' : 'ACEPTADO' };
 
       const paymentKey = PaymentKeys.findOne({ paymentId: payment._id });
       const key = paymentKey ? paymentKey.keyUsed : config.key;
+      data.c = paymentKey ? paymentKey.storeEmail : config.email;
 
       const packed = pack(data, key);
       response.end(packed);
